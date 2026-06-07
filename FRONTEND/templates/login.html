@@ -1,0 +1,56 @@
+<!-- templates/login.html -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- background overlay (keep your existing background image if any) -->
+<div class="bg-overlay"></div>
+
+<!-- floating colorful shapes -->
+<div class="floating-shape small" style="top:20%; left:15%;"></div>
+<div class="floating-shape medium" style="top:40%; left:60%;"></div>
+<div class="floating-shape large" style="top:70%; left:30%;"></div>
+<div class="floating-shape small" style="top:10%; left:80%;"></div>
+<div class="floating-shape medium" style="top:60%; left:10%;"></div>
+<div class="floating-shape large" style="top:25%; left:50%;"></div>
+<div class="floating-shape small" style="top:75%; left:75%;"></div>
+
+<!-- login card -->
+<div class="card auth-card animate-up">
+  <h2>Welcome back</h2>
+  <p class="muted">Login to access the Ad Click Fraud dashboard</p>
+
+  <form method="POST" action="{{ url_for('login') }}">
+    <div class="form-row">
+      <label>Username</label>
+      <input name="username" placeholder="username" required autofocus />
+    </div>
+
+    <div class="form-row">
+      <label>Password</label>
+      <div class="pw-wrap">
+        <input name="password" type="password" placeholder="password" required id="pw" />
+        <button type="button" class="show-btn" onclick="togglePw('pw')" aria-label="Show password">Show</button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <button class="btn primary">Login</button>
+    </div>
+
+    <p class="muted">Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+  </form>
+</div>
+
+<!-- password toggle script -->
+<script>
+function togglePw(id) {
+    const input = document.getElementById(id);
+    if (input.type === "password") {
+        input.type = "text";
+    } else {
+        input.type = "password";
+    }
+}
+</script>
+
+{% endblock %}

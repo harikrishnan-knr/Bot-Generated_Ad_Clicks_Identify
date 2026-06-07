@@ -1,0 +1,49 @@
+<!-- templates/base.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ad Click Fraud — Dashboard</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+</head>
+<body>
+  <div class="bg-overlay" style="background-image: url('{{ BG_IMAGE }}');"></div>
+
+  <nav class="topbar">
+    <div class="brand">AdClickGuard</div>
+    <div class="nav-right">
+      {% if session.user %}
+        <span class="user-pill">Hello, {{ session.user }}</span>
+        <a class="btn-nav" href="{{ url_for('overview') }}">Overview</a>
+        <a class="btn-nav" href="{{ url_for('predict_page') }}">Predict</a>
+        <a class="btn-nav" href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a class="btn-nav" href="{{ url_for('login') }}">Login</a>
+        <a class="btn-nav" href="{{ url_for('register') }}">Register</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-area">
+        {% for category, msg in messages %}
+          <div class="flash {{ category }}">{{ msg }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <script>
+    feather.replace()
+  </script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

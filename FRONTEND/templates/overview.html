@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- floating shapes -->
+<div class="floating-shape small" style="top:20%; left:15%;"></div>
+<div class="floating-shape medium" style="top:40%; left:60%;"></div>
+<div class="floating-shape large" style="top:70%; left:30%;"></div>
+<div class="floating-shape small" style="top:10%; left:80%;"></div>
+<div class="floating-shape medium" style="top:60%; left:10%;"></div>
+<div class="floating-shape large" style="top:25%; left:50%;"></div>
+<div class="floating-shape small" style="top:75%; left:75%;"></div>
+
+<div class="overview-grid animate-up">
+  <div class="stat-card gradient-card">
+    <div class="stat-number">{{ stats.features_count }}</div>
+    <div class="stat-label">Selected Features</div>
+  </div>
+
+  <div class="stat-card gradient-card">
+    <div class="stat-number">Binary</div>
+    <div class="stat-label">Prediction Type</div>
+  </div>
+
+  <div class="stat-card gradient-card">
+    <div class="stat-number">RandomForest / XGBoost</div>
+    <div class="stat-label">Models</div>
+  </div>
+</div>
+
+{% endblock %}

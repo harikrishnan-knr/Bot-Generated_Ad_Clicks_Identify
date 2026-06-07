@@ -1,0 +1,36 @@
+<!-- templates/register.html -->
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card auth-card animate-up">
+  <h2>Create account</h2>
+  <p class="muted">Sign up to try predictions & dashboard</p>
+
+  <form method="POST" action="{{ url_for('register') }}">
+    <div class="form-row">
+      <label>Username</label>
+      <input name="username" placeholder="username" required />
+    </div>
+
+    <div class="form-row">
+      <label>Email</label>
+      <input name="email" type="email" placeholder="you@example.com" />
+    </div>
+
+    <div class="form-row">
+      <label>Password</label>
+      <div class="pw-wrap">
+        <input name="password" type="password" placeholder="password" required id="pw2" />
+        <button type="button" class="show-btn" onclick="togglePw('pw2')">Show</button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <button class="btn primary">Register</button>
+    </div>
+
+    <p class="muted">Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+Flask==2.3.2
+pandas
+joblib
+scikit-learn
+xgboost
+shap
+matplotlib

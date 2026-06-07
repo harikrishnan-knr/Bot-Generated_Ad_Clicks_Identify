@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- floating shapes -->
+<div class="floating-shape small" style="top:20%; left:15%;"></div>
+<div class="floating-shape medium" style="top:40%; left:60%;"></div>
+<div class="floating-shape large" style="top:70%; left:30%;"></div>
+<div class="floating-shape small" style="top:10%; left:80%;"></div>
+<div class="floating-shape medium" style="top:60%; left:10%;"></div>
+<div class="floating-shape large" style="top:25%; left:50%;"></div>
+<div class="floating-shape small" style="top:75%; left:75%;"></div>
+
+<div class="card animate-up predict-card">
+  <h2>Make a Prediction</h2>
+  <p class="muted">Fill the fields and press Predict.</p>
+
+  {% if pred is not none %}
+    <div class="result-card">
+      <h3>Prediction: 
+        {% if pred == 1 %}
+          <span class="badge good">Human Click</span>
+        {% else %}
+          <span class="badge bad">Bot Click</span>
+        {% endif %}
+      </h3>
+    </div>
+  {% endif %}
+
+  <form method="POST" action="{{ url_for('predict_page') }}">
+    <div class="form-grid">
+      {% if features %}
+        {% for f in features %}
+          <div class="form-row">
+            <label>{{ f }}</label>
+            <input name="{{ f }}" placeholder="{{ f }}" />
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="muted">Model not loaded — upload your model files to enable form input auto-generation.</p>
+      {% endif %}
+    </div>
+
+    <div class="form-row">
+      <button class="btn primary">Predict</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

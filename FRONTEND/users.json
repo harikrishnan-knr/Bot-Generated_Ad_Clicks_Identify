@@ -1,0 +1,18 @@
+{
+  "admin": {
+    "email": "sifa@gmail.com",
+    "password": "1234"
+  },
+  "dilfar": {
+    "email": "sifa@gmail.com",
+    "password": "1234"
+  },
+  "hari": {
+    "email": "hari@gmail.com",
+    "password": "1234"
+  },
+  "john": {
+    "email": "john@gmail.com",
+    "password": "john"
+  }
+}
