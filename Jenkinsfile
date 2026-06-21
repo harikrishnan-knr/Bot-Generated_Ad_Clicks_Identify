@@ -7,7 +7,7 @@ pipeline {
     environment {
 
         IMAGE_NAME = 'bot-identify'
-        CONTAINER_NAME = 'web-app'
+        CONTAINER_NAME = 'flask-app'
     }
 
     stages {
@@ -48,7 +48,7 @@ pipeline {
 
             steps {
 
-                sh 'docker run -d --name ${CONTAINER_NAME} -p 8090:8080 ${IMAGE_NAME}:latest'
+                sh 'docker run -d --name ${CONTAINER_NAME} -p 5000:5000 ${IMAGE_NAME}:latest'
                 echo "------ Running Docker Container ------"
             }
         }
