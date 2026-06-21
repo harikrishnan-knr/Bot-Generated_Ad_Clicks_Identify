@@ -6,8 +6,8 @@ pipeline {
 
     environment {
 
-        IMAGE_NAME = 'flask-app'
-        CONTAINER_NAME = 'webapp-flask'
+        IMAGE_NAME = 'bot-identify'
+        CONTAINER_NAME = 'web-app'
     }
 
     stages {
